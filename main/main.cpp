@@ -10,13 +10,13 @@ int main(int argc, char ** argv)
 	void *libComposant1;
 	void *libComposant2;
 
-	libComposant1 = dlopen ("libComposant1.so", RTLD_LAZY);
+	libComposant1 = dlopen (argv[1], RTLD_LAZY);
 	if (!libComposant1) {
 		printf ("Erreur dlopen: %s\n", dlerror());
         	exit(EXIT_FAILURE);
     	}
 
-	libComposant2 = dlopen ("libComposant2.so", RTLD_LAZY);
+	libComposant2 = dlopen (argv[2], RTLD_LAZY);
 	if (!libComposant2) {
 		printf ("Erreur dlopen: %s\n", dlerror ());
 		exit(EXIT_FAILURE);
