@@ -22,17 +22,17 @@ int main(int argc, char ** argv)
 		exit(EXIT_FAILURE);
     	}
 
-	int (*composant1)(int, int) = (int (*)(int, int))dlsym(libComposant1, "composant1");
+	int (*composant1)(int, int) = (int (*)(int, int))dlsym(libComposant1, "_Z10composant1ii");
 	if (!composant1) {
                 printf ("Erreur dlsym: %s\n", dlerror());
                 exit(EXIT_FAILURE);
         }
-	int (*composant2)(int, int) = (int (*)(int, int))dlsym(libComposant2, "composant2");
+	int (*composant2)(int, int) = (int (*)(int, int))dlsym(libComposant2, "_Z10composant2ii");
 	if (!composant2) {
                 printf ("Erreur dlsym: %s\n", dlerror());
                 exit(EXIT_FAILURE);
         }
-	char *(*getComposant1Version)() = (char *(*)())dlsym(libComposant1, "getComposant1Version");
+	char *(*getComposant1Version)() = (char *(*)())dlsym(libComposant1, "_Z20getComposant1Versionv");
 	if (!getComposant1Version) {
                 printf ("Erreur dlsym: %s\n", dlerror());
                 exit(EXIT_FAILURE);
